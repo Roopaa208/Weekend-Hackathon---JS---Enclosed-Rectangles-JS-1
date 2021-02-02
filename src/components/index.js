@@ -106,11 +106,16 @@ function isInside(rec,top,left,height,width){
 	let rLeft=Number(rec.left.substr(0,rec.left.length-2));
 	let rHeight=Number(rec.height.substr(0,rec.height.length-2));
 	let rWidth=Number(rec.width.substr(0,rec.width.length-2));
-	if(rTop>top &amp;amp;&amp;amp; rLeft>left &amp;amp;&amp;amp; rHeight>height &amp;amp;&amp;amp; rWidth>width)
+// 	if(rTop>top &amp;amp;&amp;amp; rLeft>left &amp;amp;&amp;amp; rHeight>height &amp;amp;&amp;amp; rWidth>width)
+// 		return 0;
+// 	else if(rTop<=top &amp;amp;&amp;amp; rLeft<=left &amp;amp;&amp;amp; rHeight<height &amp;amp;&amp;amp; rWidth<width)
+// 		return 1;
+// 	return -1;
+	if(top>=0 && left>=0 && height+top <=0 && width+left <=0)
 		return 0;
-	else if(rTop<=top &amp;amp;&amp;amp; rLeft<=left &amp;amp;&amp;amp; rHeight<height &amp;amp;&amp;amp; rWidth<width)
+    	else if(top<0 && left<0 && height+top > 0 && width+left > 0)
 		return 1;
-	return -1;
+    	return -1;
 }
 function updateStructure(rec1,rec2){
 	let top=Number(rec2.top.substr(0,rec2.top.length-2))-Number(rec1.top.substr(0,rec1.top.length-2));
