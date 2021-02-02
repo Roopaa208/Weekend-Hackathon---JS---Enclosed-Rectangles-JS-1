@@ -6,16 +6,12 @@
 //      children: []
 //}
 
-function isInside(rec,top,left,height,width){
-	let rTop=Number(rec.top.substr(0,rec.top.length-2));
-	let rLeft=Number(rec.left.substr(0,rec.left.length-2));
-	let rHeight=Number(rec.height.substr(0,rec.height.length-2));
-	let rWidth=Number(rec.width.substr(0,rec.width.length-2));
-	if(rTop>top && rLeft>left && rHeight>height && rWidth>width)
-		return 0;
-	else if(rTop<=top && rLeft<=left && rHeight<height && rWidth<width)
-		return 1;
-	return -1;
+function isInside(top,left,height,width){
+    if(top>=0 && left>=0 && height+top <=0 && width+left <=0)
+        return 0;
+    else if(top<0 && left<0 && height+top > 0 && width+left > 0)
+        return 1;
+    return -1;
 }
 function updateStructure(rec1,rec2){
 	//write your code
@@ -24,7 +20,7 @@ function updateStructure(rec1,rec2){
 	let height=Number(rec2.height.substr(0,rec2.height.length-2))-Number(rec1.height.substr(0,rec1.height.length-2));
 	let width=Number(rec2.width.substr(0,rec2.width.length-2))-Number(rec1.width.substr(0,rec1.width.length-2));
 	
-	if(isInside(rec1,top,left,height,width)===0){
+	if(isInside(top,left,height,width)===0){
 		
 		rec={...rec1,
 			children:[{top:Math.abs(top)+"px",
@@ -33,7 +29,7 @@ function updateStructure(rec1,rec2){
 			width:Math.abs(width)+"px"}]
 		}
 	 	return rec;
-	}else if(isInside(rec2,top,left,height,width)===1){
+	}else if(isInside(top,left,height,width)===1){
 		rec={...rec2,
 			children:[{top:Math.abs(top)+"px",
 			left:Math.abs(left)+"px",
