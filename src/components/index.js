@@ -43,27 +43,30 @@
 // }
 function updateStructure(rec1,rec2){
         //write your code
-        var top1 = rec1.top, top2 = rec2.top;
-        var left1 = rec1.left, left2 = rec2.left;
-        var width1 = rec1.width, width2 = rec2.width;
-        var height1 = rec1.height, height2 = rec2.height;
-	
-            top1 = top1.slice(0,-1); top1 = top1.slice(0,-1);
-            top1 = Number(top1);
-            top2 = top2.slice(0,-1); top2 = top2.slice(0,-1);
-            top2 = Number(top2);
-            left1 = left1.slice(0,-1); left1 = left1.slice(0,-1);
-            left1 = Number(left1);
-            left2 = left2.slice(0,-1); left2 = left2.slice(0,-1);
-            left2 = Number(left2);
-            width1 = width1.slice(0,-1); width1 = width1.slice(0,-1);
-            width1 = Number(width1);
-            width2 = width2.slice(0,-1); width2 = width2.slice(0,-1);
-            width2 = Number(width2);
-            height1 = height1.slice(0,-1); height1 = height1.slice(0,-1);
-            height1 = Number(height1);
-            height2 = height2.slice(0,-1); height2 = height2.slice(0,-1);
-            height2 = Number(height2);
+//         var top1 = rec1.top, top2 = rec2.top;
+//         var left1 = rec1.left, left2 = rec2.left;
+//         var width1 = rec1.width, width2 = rec2.width;
+//         var height1 = rec1.height, height2 = rec2.height;
+	let top2=Number(rec2.top.substr(0,rec2.top.length-2)),top1=Number(rec1.top.substr(0,rec1.top.length-2));
+	let left2=Number(rec2.left.substr(0,rec2.left.length-2)),left1=Number(rec1.left.substr(0,rec1.left.length-2));
+	let height2=Number(rec2.height.substr(0,rec2.height.length-2)),height1=Number(rec1.height.substr(0,rec1.height.length-2));
+	let width2=Number(rec2.width.substr(0,rec2.width.length-2)),width1=Number(rec1.width.substr(0,rec1.width.length-2));
+//             top1 = top1.slice(0,-1); top1 = top1.slice(0,-1);
+//             top1 = Number(top1);
+//             top2 = top2.slice(0,-1); top2 = top2.slice(0,-1);
+//             top2 = Number(top2);
+//             left1 = left1.slice(0,-1); left1 = left1.slice(0,-1);
+//             left1 = Number(left1);
+//             left2 = left2.slice(0,-1); left2 = left2.slice(0,-1);
+//             left2 = Number(left2);
+//             width1 = width1.slice(0,-1); width1 = width1.slice(0,-1);
+//             width1 = Number(width1);
+//             width2 = width2.slice(0,-1); width2 = width2.slice(0,-1);
+//             width2 = Number(width2);
+//             height1 = height1.slice(0,-1); height1 = height1.slice(0,-1);
+//             height1 = Number(height1);
+//             height2 = height2.slice(0,-1); height2 = height2.slice(0,-1);
+//             height2 = Number(height2);
 // 	top1 = top1.slice(0,-2); top1 = top1.slice(0,-2);
 //             top1 = Number(top1);
 //             top2 = top2.slice(0,-2); top2 = top2.slice(0,-2);
