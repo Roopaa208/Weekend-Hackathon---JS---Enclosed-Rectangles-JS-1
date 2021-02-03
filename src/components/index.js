@@ -83,19 +83,34 @@ function updateStructure(rec1,rec2){
 //             height1 = Number(height1);
 //             height2 = height2.slice(0,-2); height2 = height2.slice(0,-2);
 //             height2 = Number(height2);
-            if(top1 > top2 && left1 > left2 && (top2+height2) > (top1+height1) && (left2+width2) >(left1+width1)){
-                return {
-			...rec2,
-                        children: [{
-                        top: `${Math.abs(top1-top2)}px`,
-                        left: `${Math.abs(left1-left2)}px`,
-                        width: rec1.width,
-                        height: rec1.height,
-                        children: []
-                    }]
-                }
-            }else if(top1 <= top2 && left1 <= left2 && (top2+height2) <= (top1+height1) && (left2+width2) <= (left1+width1)){
-                return {
+//             if(top1 > top2 && left1 > left2 && (top2+height2) > (top1+height1) && (left2+width2) >(left1+width1)){
+//                 return {
+// 			...rec2,
+//                         children: [{
+//                         top: `${Math.abs(top1-top2)}px`,
+//                         left: `${Math.abs(left1-left2)}px`,
+//                         width: rec1.width,
+//                         height: rec1.height,
+//                         children: []
+//                     }]
+//                 }
+//             }else if(top1 <= top2 && left1 <= left2 && (top2+height2) <= (top1+height1) && (left2+width2) <= (left1+width1)){
+//                 return {
+// 			...rec1,
+//                         children: [{
+//                         top: `${Math.abs(top2-top1)}px`,
+//                         left: `${Math.abs(left2-left1)}px`,
+//                         width: rec2.width,
+//                         height: rec2.height,
+//                         children: []
+//                     }]
+//                 }
+//             }else {
+//                 return {...rec1}
+//         }
+	if (top2 > top1 && top1 + height1 > top2 + height2 && left2 > left1 && left1 + width1 > left2 + width2) {
+		//rec 1 k andar rec 2
+		return {
 			...rec1,
                         children: [{
                         top: `${Math.abs(top2-top1)}px`,
@@ -105,9 +120,36 @@ function updateStructure(rec1,rec2){
                         children: []
                     }]
                 }
-            }else {
-                return {...rec1}
-        }
+	}
+	else if (top2 == top1 && top1 + height1 == top2 + height2 && left2 == left1 && left1 + width1 == left2 + width2) {
+		//rec 1 and rec 2 overlap
+		return {
+			...rec1,
+                        children: [{
+                        top: `${Math.abs(top2-top1)}px`,
+                        left: `${Math.abs(left2-left1)}px`,
+                        width: rec2.width,
+                        height: rec2.height,
+                        children: []
+                    }]
+                }
+	}
+	else if (top1 > top2 && top2 + height2 > top1 + height1 &&	left1 > left2 && left2 + width2 > left1 + width1) {
+		//rec 2 k andar rec 1
+		return {
+			...rec2,
+                        children: [{
+                        top: `${Math.abs(top1-top2)}px`,
+                        left: `${Math.abs(left1-left2)}px`,
+                        width: rec1.width,
+                        height: rec1.height,
+                        children: []
+                    }]
+                }
+	}
+	else {
+		return {...rec1};
+	}
 }
 // function isInside(rec,top,left,height,width){
 // 	let rTop=Number(rec.top.substr(0,rec.top.length-2));
