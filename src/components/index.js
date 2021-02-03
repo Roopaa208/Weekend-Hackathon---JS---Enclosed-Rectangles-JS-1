@@ -88,6 +88,7 @@ function updateStructure(rec1,rec2){
             }else {
                 return {...rec1}
         }
+}
 // function isInside(rec,top,left,height,width){
 // 	let rTop=Number(rec.top.substr(0,rec.top.length-2));
 // 	let rLeft=Number(rec.left.substr(0,rec.left.length-2));
