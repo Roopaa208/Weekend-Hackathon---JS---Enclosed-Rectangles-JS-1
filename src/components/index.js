@@ -47,6 +47,7 @@ function updateStructure(rec1,rec2){
         var left1 = rec1.left, left2 = rec2.left;
         var width1 = rec1.width, width2 = rec2.width;
         var height1 = rec1.height, height2 = rec2.height;
+	
             top1 = top1.slice(0,-2); top1 = top1.slice(0,-2);
             top1 = Number(top1);
             top2 = top2.slice(0,-2); top2 = top2.slice(0,-2);
@@ -67,8 +68,8 @@ function updateStructure(rec1,rec2){
                 return {
 			...rec2,
                         children: [{
-                        top: `${top1-top2}px`,
-                        left: `${left1-left2}px`,
+                        top: `${Math.abs(top1-top2)}px`,
+                        left: `${Math.abs(left1-left2)}px`,
                         width: rec1.width,
                         height: rec1.height,
                         children: []
@@ -78,8 +79,8 @@ function updateStructure(rec1,rec2){
                 return {
 			...rec1,
                         children: [{
-                        top: `${top2-top1}px`,
-                        left: `${left2-left1}px`,
+                        top: `${Math.abs(top2-top1)}px`,
+                        left: `${Math.abs(left2-left1)}px`,
                         width: rec2.width,
                         height: rec2.height,
                         children: []
