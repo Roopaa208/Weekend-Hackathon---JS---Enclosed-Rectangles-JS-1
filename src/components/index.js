@@ -67,8 +67,8 @@ function updateStructure(rec1,rec2){
                 return {
 			...rec2,
                         children: [{
-                        top: `${Math.abs(top1-top2)}px`,
-                        left: `${Math.abs(left1-left2)}px`,
+                        top: `${top1-top2}px`,
+                        left: `${left1-left2}px`,
                         width: rec1.width,
                         height: rec1.height,
                         children: []
@@ -78,8 +78,8 @@ function updateStructure(rec1,rec2){
                 return {
 			...rec1,
                         children: [{
-                        top: `${Math.abs(top2-top1)}px`,
-                        left: `${Math.abs(left2-left1)}px`,
+                        top: `${top2-top1}px`,
+                        left: `${left2-left1}px`,
                         width: rec2.width,
                         height: rec2.height,
                         children: []
