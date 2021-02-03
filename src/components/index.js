@@ -63,23 +63,23 @@ function updateStructure(rec1,rec2){
             height1 = Number(height1);
             height2 = height2.slice(0,-1); height2 = height2.slice(0,-1);
             height2 = Number(height2);
-            if(top1 >= top2 && left1 >= left2 && (height2) >= (height1) && (width2) >=(width1)){
+            if(top1 > top2 && left1 > left2 && (top2+height2) > (top1+height1) && (left2+width2) >(left1+width1)){
                 return {
 			...rec2,
                         children: [{
-                        top: `${top1-top2}px`,
-                        left: `${left1-left2}px`,
+                        top: `${Math.abs(top1-top2)}px`,
+                        left: `${Math.abs(left1-left2)}px`,
                         width: rec1.width,
                         height: rec1.height,
                         children: []
                     }]
                 }
-            }else if(top1 < top2 && left1 < left2 && (height2) < (height1) && (width2) < (width1)){
+            }else if(top1 <= top2 && left1 <= left2 && (top2+height2) <= (top1+height1) && (left2+width2) <= (left1+width1)){
                 return {
 			...rec1,
                         children: [{
-                        top: `${top2-top1}px`,
-                        left: `${left2-left1}px`,
+                        top: `${Math.abs(top2-top1)}px`,
+                        left: `${Math.abs(left2-left1)}px`,
                         width: rec2.width,
                         height: rec2.height,
                         children: []
