@@ -14,11 +14,11 @@ function updateStructure(rec1,rec2){
 //************************IMPLEMENTTION********************************
 function hasProperty(rec){
 	return {
-	top: (!rec.hasOwnProperty("top")?"0px":rec.top);
-	left: (!rec.hasOwnProperty("left")?"0px":rec.left);
-	height: (!rec.hasOwnProperty("height")?"0px":rec.height);
-	width: (!rec.hasOwnProperty("width")?"0px":rec.width);
-	children: (!rec.hasOwnProperty("children")?"[]":rec.children);
+	top: (!rec.hasOwnProperty("top")?"0px":rec.top),
+	left: (!rec.hasOwnProperty("left")?"0px":rec.left),
+	height: (!rec.hasOwnProperty("height")?"0px":rec.height),
+	width: (!rec.hasOwnProperty("width")?"0px":rec.width),
+	children: (!rec.hasOwnProperty("children")?"[]":rec.children),
 	}
 }
 function updateStructure2(rec1,rec2){
