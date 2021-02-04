@@ -112,7 +112,7 @@ function updateStructure1(rec1,rec2){
                     }]
                 }
             }else {
-                return {...re1}
+                return {...rec1}
         }
 
 }
