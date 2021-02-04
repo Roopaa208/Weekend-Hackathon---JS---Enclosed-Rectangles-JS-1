@@ -7,8 +7,8 @@
 //}
 //caller
 function updateStructure(rec1,rec2){
-//	return updateStructure1(rec1,rec2);
-	return updateStructure2(rec1,rec2);
+	return updateStructure1(rec1,rec2);
+// 	return updateStructure2(rec1,rec2);
 }
 
 //************************IMPLEMENTTION********************************
