@@ -79,15 +79,19 @@ function updateStructure2(rec1,rec2){
 
 function updateStructure1(rec1,rec2){
         //write your code
-	hasProperty(rec1);
-	hasProperty(rec2);
-	let top2=Number(rec2.top.substr(0,rec2.top.length-2)),top1=Number(rec1.top.substr(0,rec1.top.length-2));
-	let left2=Number(rec2.left.substr(0,rec2.left.length-2)),left1=Number(rec1.left.substr(0,rec1.left.length-2));
-	let height2=Number(rec2.height.substr(0,rec2.height.length-2)),height1=Number(rec1.height.substr(0,rec1.height.length-2));
-	let width2=Number(rec2.width.substr(0,rec2.width.length-2)),width1=Number(rec1.width.substr(0,rec1.width.length-2));
+	let re1=hasProperty(rec1);
+	let re2=hasProperty(rec2);
+// 	let top2=Number(rec2.top.substr(0,rec2.top.length-2)),top1=Number(rec1.top.substr(0,rec1.top.length-2));
+// 	let left2=Number(rec2.left.substr(0,rec2.left.length-2)),left1=Number(rec1.left.substr(0,rec1.left.length-2));
+// 	let height2=Number(rec2.height.substr(0,rec2.height.length-2)),height1=Number(rec1.height.substr(0,rec1.height.length-2));
+// 	let width2=Number(rec2.width.substr(0,rec2.width.length-2)),width1=Number(rec1.width.substr(0,rec1.width.length-2));
+	let top2=Number(re2.top.substr(0,re2.top.length-2)),top1=Number(re1.top.substr(0,re1.top.length-2));
+	let left2=Number(re2.left.substr(0,re2.left.length-2)),left1=Number(re1.left.substr(0,re1.left.length-2));
+	let height2=Number(re2.height.substr(0,re2.height.length-2)),height1=Number(re1.height.substr(0,re1.height.length-2));
+	let width2=Number(re2.width.substr(0,re2.width.length-2)),width1=Number(re1.width.substr(0,re1.width.length-2));
             if(top1 > top2 && left1 > left2 && (top2+height2) > (top1+height1) && (left2+width2) >(left1+width1)){
                 return {
-			...rec2,
+			...re2,
                         children: [{
                         top: `${Math.abs(top1-top2)}px`,
                         left: `${Math.abs(left1-left2)}px`,
@@ -98,7 +102,7 @@ function updateStructure1(rec1,rec2){
                 }
             }else if(top1 <= top2 && left1 <= left2 && (top2+height2) <= (top1+height1) && (left2+width2) <= (left1+width1)){
                 return {
-			...rec1,
+			...re1,
                         children: [{
                         top: `${Math.abs(top2-top1)}px`,
                         left: `${Math.abs(left2-left1)}px`,
