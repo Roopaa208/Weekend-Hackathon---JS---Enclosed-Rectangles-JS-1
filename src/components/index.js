@@ -12,9 +12,17 @@ function updateStructure(rec1,rec2){
 }
 
 //************************IMPLEMENTTION********************************
-
+function hasProperty(rec){
+	rec.top= (!rec.hasOwnProperty("top")?"0px":rec.top);
+	rec.left= (!rec.hasOwnProperty("left")?"0px":rec.left);
+	rec.height= (!rec.hasOwnProperty("height")?"0px":rec.height);
+	rec.width= (!rec.hasOwnProperty("width")?"0px":rec.width);
+// 	rec.children[]= (!rec.hasOwnProperty("top")?"{}":rec.children[0]);
+}
 function updateStructure2(rec1,rec2){
         //write your code
+	hasProperty(rec1);
+	hasProperty(rec2);
 	let top2=Number(rec2.top.substr(0,rec2.top.length-2)),top1=Number(rec1.top.substr(0,rec1.top.length-2));
 	let left2=Number(rec2.left.substr(0,rec2.left.length-2)),left1=Number(rec1.left.substr(0,rec1.left.length-2));
 	let height2=Number(rec2.height.substr(0,rec2.height.length-2)),height1=Number(rec1.height.substr(0,rec1.height.length-2));
